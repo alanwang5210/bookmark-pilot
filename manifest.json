@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Bookmark Pilot",
+  "description": "Unified bookmark, folder, and tab search with fuzzy matching and optional AI tags.",
+  "version": "0.1.0",
+  "minimum_chrome_version": "116",
+  "permissions": [
+    "bookmarks",
+    "storage",
+    "tabs"
+  ],
+  "optional_permissions": [
+    "scripting"
+  ],
+  "optional_host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "scripts/background/background.js",
+    "type": "module"
+  },
+  "icons": {
+    "16": "assets/icons/icon-16.png",
+    "32": "assets/icons/icon-32.png",
+    "48": "assets/icons/icon-48.png",
+    "128": "assets/icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "Bookmark Pilot",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icons/icon-16.png",
+      "32": "assets/icons/icon-32.png",
+      "48": "assets/icons/icon-48.png"
+    }
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+K",
+        "mac": "Command+Shift+K"
+      },
+      "description": "Open Bookmark Pilot"
+    }
+  },
+  "omnibox": {
+    "keyword": "bm"
+  },
+  "options_page": "options.html"
+}
