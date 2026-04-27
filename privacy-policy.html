@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bookmark Pilot Privacy Policy</title>
+    <style>
+      :root {
+        --bg: #f6f2eb;
+        --panel: rgba(255, 255, 255, 0.88);
+        --text: #1a332f;
+        --muted: #60716c;
+        --accent: #2f7f6c;
+        --line: rgba(26, 51, 47, 0.12);
+        --shadow: 0 18px 44px rgba(22, 37, 33, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font: 16px/1.7 "Segoe UI", "Microsoft YaHei UI", "PingFang SC", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(235, 212, 176, 0.28), transparent 28%),
+          radial-gradient(circle at top right, rgba(182, 220, 209, 0.26), transparent 30%),
+          linear-gradient(180deg, #f8f4ee 0%, var(--bg) 100%);
+      }
+
+      main {
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 40px 20px 72px;
+      }
+
+      .card {
+        padding: 32px;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: var(--panel);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(10px);
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0 0 14px;
+        line-height: 1.25;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      h2 {
+        margin-top: 28px;
+        font-size: 22px;
+      }
+
+      h3 {
+        margin-top: 22px;
+        font-size: 18px;
+      }
+
+      p,
+      li {
+        color: var(--text);
+      }
+
+      .muted,
+      .muted p {
+        color: var(--muted);
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 12px;
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .section {
+        padding-top: 8px;
+        border-top: 1px solid rgba(26, 51, 47, 0.08);
+        margin-top: 28px;
+      }
+
+      ul {
+        margin: 12px 0 0;
+        padding-left: 20px;
+      }
+
+      .lang-block + .lang-block {
+        margin-top: 36px;
+      }
+
+      code {
+        padding: 2px 6px;
+        border-radius: 999px;
+        background: rgba(47, 127, 108, 0.08);
+        color: var(--accent);
+      }
+
+      a {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="card">
+        <span class="eyebrow">Bookmark Pilot</span>
+        <h1>Privacy Policy / 隐私政策</h1>
+        <p class="muted">Last updated / 最后更新：2026-04-22</p>
+
+        <section class="lang-block">
+          <h2>English</h2>
+          <p>
+            Bookmark Pilot is a Chrome extension focused on helping users search and manage bookmarks,
+            folders, and tabs. This Privacy Policy explains what data the extension accesses, how that
+            data is used, and when data may be sent to third-party services chosen by the user.
+          </p>
+
+          <div class="section">
+            <h3>1. Data the extension accesses</h3>
+            <ul>
+              <li>Bookmarks and bookmark folders, so the extension can provide unified search and organization.</li>
+              <li>Open tab information, including tab title, URL, and window relationship, so tabs can be included in unified search results.</li>
+              <li>Extension settings and local state, such as language preference, AI settings, scope selection, and indexing status.</li>
+              <li>Optional page metadata, such as page title or meta description, only when the user enables enhanced AI analysis.</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h3>2. How data is used</h3>
+            <ul>
+              <li>To index and search bookmarks, folders, and tabs inside the extension.</li>
+              <li>To save user preferences locally on the user’s device.</li>
+              <li>To generate optional AI labels and summaries when the user enables AI features.</li>
+              <li>To check whether selected bookmark or tab URLs appear to be dead links when the user starts dead-link scanning.</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h3>3. Local storage</h3>
+            <p>
+              Bookmark Pilot stores settings and extension state locally using <code>chrome.storage.local</code>
+              and IndexedDB. This may include AI configuration entered by the user, saved scope selection,
+              usage statistics used by the extension experience, and AI-generated labels or summaries created
+              for bookmarks, folders, or tabs.
+            </p>
+          </div>
+
+          <div class="section">
+            <h3>4. AI features and third-party services</h3>
+            <p>
+              AI features are optional and only run when the user enables them and provides an AI service
+              endpoint and API key.
+            </p>
+            <p>
+              When AI analysis is used, Bookmark Pilot may send selected item metadata to the user-configured
+              AI provider, including:
+            </p>
+            <ul>
+              <li>Item title</li>
+              <li>Item URL</li>
+              <li>Folder path</li>
+              <li>Entity type such as bookmark, folder, or tab</li>
+              <li>Optional page description metadata when enhanced AI analysis is enabled</li>
+            </ul>
+            <p>
+              The developer of Bookmark Pilot does not operate the user-selected AI endpoint and is not
+              responsible for the privacy practices of that third-party AI provider.
+            </p>
+          </div>
+
+          <div class="section">
+            <h3>5. Dead-link scanning</h3>
+            <p>
+              When the user runs dead-link scanning, the extension sends network requests to the URLs selected
+              for checking in order to determine whether those URLs return errors such as <code>404</code>,
+              <code>410</code>, DNS failure, or connection failure.
+            </p>
+          </div>
+
+          <div class="section">
+            <h3>6. Data sharing</h3>
+            <p>
+              Bookmark Pilot does not sell user data. Data is not shared with the developer’s own server,
+              because the extension does not use a developer-operated backend service. Data is only transmitted
+              externally when the user explicitly uses features that require network access, such as AI analysis
+              or dead-link scanning.
+            </p>
+          </div>
+
+          <div class="section">
+            <h3>7. User control</h3>
+            <ul>
+              <li>Users can disable AI features at any time.</li>
+              <li>Users can clear AI-generated labels inside the extension.</li>
+              <li>Users can choose the AI scope and whether to include tabs.</li>
+              <li>Users can remove the extension to delete extension-managed local data from Chrome according to Chrome’s extension data behavior.</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h3>8. Contact</h3>
+            <p>
+              For privacy questions about Bookmark Pilot, please contact the developer using the support contact
+              information provided on the Chrome Web Store listing for this extension.
+            </p>
+          </div>
+        </section>
+
+        <section class="lang-block">
+          <h2>中文</h2>
+          <p>
+            Bookmark Pilot 是一款帮助用户统一搜索和管理书签、文件夹与标签页的 Chrome 扩展。
+            本隐私政策说明该扩展会访问哪些数据、这些数据如何被使用，以及在什么情况下数据可能会被发送到用户自行选择的第三方服务。
+          </p>
+
+          <div class="section">
+            <h3>1. 扩展会访问哪些数据</h3>
+            <ul>
+              <li>书签与书签文件夹：用于提供统一搜索与整理能力。</li>
+              <li>打开的标签页信息：包括标题、URL 和所属窗口关系，用于将标签页纳入统一搜索结果。</li>
+              <li>扩展设置与本地状态：例如语言偏好、AI 设置、生成范围选择和索引状态。</li>
+              <li>可选的页面元数据：仅在用户开启增强 AI 分析时，可能读取页面标题或 meta description 等轻量信息。</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h3>2. 数据如何被使用</h3>
+            <ul>
+              <li>用于在扩展内部建立索引并搜索书签、文件夹和标签页。</li>
+              <li>用于在用户设备本地保存偏好设置。</li>
+              <li>在用户主动启用 AI 功能时，用于生成可选的 AI 标签和一句话说明。</li>
+              <li>在用户主动启动失效链接扫描时，用于检查指定书签或标签页 URL 是否失效。</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h3>3. 本地存储</h3>
+            <p>
+              Bookmark Pilot 使用 <code>chrome.storage.local</code> 和 IndexedDB 在用户设备本地保存扩展设置和状态。
+              其中可能包括用户填写的 AI 配置、保存的生成范围、扩展内部使用的使用状态，以及为书签、文件夹或标签页生成的 AI 标签与摘要。
+            </p>
+          </div>
+
+          <div class="section">
+            <h3>4. AI 功能与第三方服务</h3>
+            <p>
+              AI 功能是可选功能，仅会在用户主动启用，并配置 AI 服务地址和 API Key 后运行。
+            </p>
+            <p>当用户使用 AI 分析时，扩展可能会向用户自行配置的 AI 服务发送所选项目的以下信息：</p>
+            <ul>
+              <li>项目标题</li>
+              <li>项目 URL</li>
+              <li>文件夹路径</li>
+              <li>项目类型，例如书签、文件夹或标签页</li>
+              <li>若开启增强 AI 分析时，可能附带页面描述类元数据</li>
+            </ul>
+            <p>
+              Bookmark Pilot 的开发者不运营用户所配置的 AI 服务端点，也不对该第三方 AI 服务提供商的隐私做法负责。
+            </p>
+          </div>
+
+          <div class="section">
+            <h3>5. 失效链接扫描</h3>
+            <p>
+              当用户执行失效链接扫描时，扩展会向被检查的 URL 发起网络请求，以判断这些地址是否返回
+              <code>404</code>、<code>410</code>、DNS 失败或连接失败等结果。
+            </p>
+          </div>
+
+          <div class="section">
+            <h3>6. 数据共享</h3>
+            <p>
+              Bookmark Pilot 不会出售用户数据。该扩展不使用开发者自建后端服务，因此数据不会被发送到开发者自己的服务器。
+              只有在用户主动使用需要联网的功能时，例如 AI 分析或失效链接扫描，相关数据才会被发送到对应的目标地址。
+            </p>
+          </div>
+
+          <div class="section">
+            <h3>7. 用户控制</h3>
+            <ul>
+              <li>用户可以随时关闭 AI 功能。</li>
+              <li>用户可以在扩展中清除 AI 生成的标签和摘要。</li>
+              <li>用户可以自定义 AI 生成范围，并决定是否包含标签页。</li>
+              <li>用户可以卸载扩展；扩展本地数据将按 Chrome 的扩展数据处理方式移除。</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h3>8. 联系方式</h3>
+            <p>
+              如有与 Bookmark Pilot 隐私相关的问题，请通过 Chrome Web Store 中该扩展条目提供的开发者联系信息与开发者联系。
+            </p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

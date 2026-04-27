@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Bookmark Pilot</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="popup-shell">
+    <div class="app app-popup">
+      <header class="popup-masthead">
+        <div class="popup-topline">
+          <div class="popup-brand-inline">
+            <div class="popup-brand-block">
+              <p class="eyebrow popup-eyebrow">Bookmark Pilot</p>
+              <span class="popup-brand-note">Workspace finder</span>
+            </div>
+          </div>
+          <button id="open-options" class="ghost-button popup-settings-button" type="button" title="Settings" aria-label="Settings">
+            <svg class="settings-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.06-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.6-.22l-2.39.96a7.25 7.25 0 0 0-1.63-.94l-.36-2.54a.5.5 0 0 0-.49-.42h-3.84a.5.5 0 0 0-.49.42l-.36 2.54c-.58.23-1.12.54-1.63.94l-2.39-.96a.5.5 0 0 0-.6.22L2.71 8.84a.5.5 0 0 0 .12.64l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58a.5.5 0 0 0-.12.64l1.92 3.32a.5.5 0 0 0 .6.22l2.39-.96c.5.39 1.05.71 1.63.94l.36 2.54a.5.5 0 0 0 .49.42h3.84a.5.5 0 0 0 .49-.42l.36-2.54c.58-.23 1.12-.54 1.63-.94l2.39.96a.5.5 0 0 0 .6-.22l1.92-3.32a.5.5 0 0 0-.12-.64l-2.03-1.58ZM12 15.5A3.5 3.5 0 1 1 12 8.5a3.5 3.5 0 0 1 0 7Z"/>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <section class="command-deck" aria-label="Search workspace">
+        <div class="search-input-wrap popup-search-wrap">
+          <span class="search-orb" aria-hidden="true"></span>
+          <input id="search-input" class="search-input" type="search" autocomplete="off" spellcheck="false">
+          <div class="search-actions">
+            <div id="latency-badge" class="latency-badge hidden"></div>
+            <button id="folder-back" class="ghost-button compact-button hidden" type="button" aria-label="Back">Back</button>
+          </div>
+        </div>
+
+        <div class="command-toolbar">
+          <div id="scope-group" class="scope-group scope-group-popup" role="tablist" aria-label="Search scope">
+            <button class="scope-chip active" data-scope="all" type="button"></button>
+            <button class="scope-chip" data-scope="bookmarks" type="button"></button>
+            <button class="scope-chip" data-scope="tabs" type="button"></button>
+            <button class="scope-chip" data-scope="folders" type="button"></button>
+          </div>
+        </div>
+
+        <div class="popup-supporting-grid">
+          <section id="context-bar" class="context-bar popup-context-bar hidden"></section>
+          <section id="status-bar" class="status-bar popup-status-bar hidden"></section>
+          <div class="signal-card popup-signal-card">
+            <span id="popup-signals-label" class="signal-label">Search signals</span>
+            <span id="popup-signals-copy" class="signal-copy">Title, domain, folder path, and AI tags all help the search ranker.</span>
+          </div>
+        </div>
+      </section>
+
+      <main id="results" class="results" aria-live="polite"></main>
+
+      <footer class="popup-footer popup-shortcuts" aria-label="Keyboard shortcuts">
+        <div class="footer-item">
+          <span class="footer-key">Enter</span>
+          <span id="popup-shortcut-open">Open result</span>
+        </div>
+        <div class="footer-item">
+          <span class="footer-key">Up / Down</span>
+          <span id="popup-shortcut-navigate">Move selection</span>
+        </div>
+        <div class="footer-item">
+          <span class="footer-key">Backspace</span>
+          <span id="popup-shortcut-folder">Leave folder</span>
+        </div>
+      </footer>
+    </div>
+
+    <template id="result-template">
+      <article class="result-card" tabindex="-1">
+        <div class="result-topline">
+          <div class="favicon-shell" aria-hidden="true"></div>
+          <div class="result-main">
+            <div class="result-heading-row">
+              <div class="result-heading-copy">
+                <h2 class="result-title"></h2>
+                <div class="result-meta"></div>
+              </div>
+              <div class="result-badges"></div>
+            </div>
+            <div class="result-path"></div>
+          </div>
+        </div>
+        <section class="result-insight hidden">
+          <span class="result-insight-label"></span>
+          <div class="result-reasons"></div>
+        </section>
+        <section class="result-ai hidden">
+          <div class="result-ai-label"></div>
+          <p class="result-ai-summary hidden"></p>
+          <div class="result-ai-tags"></div>
+        </section>
+        <div class="result-actions"></div>
+      </article>
+    </template>
+
+    <script type="module" src="scripts/popup/popup.js"></script>
+  </body>
+</html>

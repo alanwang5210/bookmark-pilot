@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Bookmark Pilot Settings</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="options-shell">
+    <div class="app app-options">
+      <header class="hero hero-large hero-options">
+        <div class="hero-topline">
+          <div class="hero-copy-block">
+            <p class="eyebrow">Bookmark Pilot</p>
+            <h1 id="options-heading">Control search and AI without feeling lost</h1>
+            <p id="options-copy" class="hero-copy">
+              Keep defaults, AI setup, and index health in one calm workspace so you always know what is ready and what comes next.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <main class="options-grid">
+        <section class="settings-card settings-card-featured">
+          <div class="section-copy">
+            <h2 id="basic-section-title">Basics</h2>
+            <p id="basic-section-copy" class="section-text">
+              Set the defaults that shape the day-to-day search experience, from first-open suggestions to your preferred search scope.
+            </p>
+          </div>
+
+          <div class="settings-stack">
+            <label class="toggle-row">
+              <span id="show-recents-label">Show recent hits on empty search</span>
+              <input id="show-recents" type="checkbox">
+            </label>
+            <label class="field">
+              <span id="default-scope-label">Default search scope</span>
+              <select id="default-scope">
+                <option value="all">All</option>
+                <option value="bookmarks">Bookmarks</option>
+                <option value="tabs">Tabs</option>
+                <option value="folders">Folders</option>
+              </select>
+            </label>
+            <label class="field">
+              <span id="language-label">Interface language</span>
+              <select id="language-select">
+                <option value="auto">Auto</option>
+                <option value="zh-CN">中文</option>
+                <option value="en">English</option>
+              </select>
+            </label>
+            <label class="field">
+              <span id="omnibox-label">Omnibox keyword</span>
+              <input value="bm" disabled>
+              <small id="omnibox-hint">Chrome does not allow changing the keyword at runtime.</small>
+            </label>
+          </div>
+        </section>
+
+        <section class="settings-card">
+          <div class="section-copy">
+            <h2 id="ai-section-title">AI enhancement</h2>
+            <p id="ai-section-copy" class="section-text">
+              AI is opt-in and only adds lightweight tags to improve recall and context. Local search remains the first stop.
+            </p>
+          </div>
+
+          <div class="ai-readiness">
+            <div class="status-hero-top">
+              <strong id="ai-readiness-title" class="readiness-heading">AI readiness</strong>
+              <span id="ai-readiness-badge" class="readiness-badge">Not ready</span>
+            </div>
+            <p id="ai-readiness-text" class="readiness-copy">
+              Add a base URL, API key, and target selection to start generating tags.
+            </p>
+          </div>
+
+          <div class="settings-stack">
+            <label class="toggle-row">
+              <span id="ai-enable-label">Enable AI tag enhancement</span>
+              <input id="ai-enabled" type="checkbox">
+            </label>
+            <label class="field">
+              <span id="provider-label">Provider</span>
+              <select id="ai-provider">
+                <option value="openai-compatible">OpenAI Compatible</option>
+              </select>
+            </label>
+            <label class="field">
+              <span id="base-url-label">API Base URL</span>
+              <input id="ai-base-url" type="url" placeholder="https://api.openai.com/v1">
+            </label>
+            <label class="field">
+              <span id="api-key-label">API Key</span>
+              <input id="ai-api-key" type="password" placeholder="sk-...">
+            </label>
+            <label class="field">
+              <span id="model-label">Model</span>
+              <input id="ai-model" type="text" placeholder="gpt-4.1-mini">
+            </label>
+            <label class="field">
+              <span id="analysis-mode-label">Analysis mode</span>
+              <select id="ai-analysis-mode">
+                <option value="metadata-only">Metadata only</option>
+                <option value="enhanced">Enhanced</option>
+              </select>
+            </label>
+            <div class="button-row">
+              <button id="save-settings" type="button">Save settings</button>
+              <button id="request-enhanced" class="ghost-button" type="button">Request enhanced access</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="settings-card settings-card-wide">
+          <div class="section-copy">
+            <h2 id="scope-section-title">AI generation scope</h2>
+            <p id="scope-section-copy" class="section-text">
+              Choose which bookmark branches, folders, windows, and tabs should participate in this run and future default AI generation.
+            </p>
+          </div>
+
+          <div id="scope-summary" class="status-inline"></div>
+          <div id="scope-review-hint" class="note"></div>
+
+          <div class="button-row">
+            <button id="toggle-scope-review" class="ghost-button" type="button">Adjust scope</button>
+          </div>
+
+          <div id="scope-panel" class="scope-panel hidden">
+            <div class="scope-columns">
+              <section class="scope-tree-card">
+                <h3 id="scope-bookmarks-title" class="section-title">Bookmarks and folders</h3>
+                <div id="bookmark-scope-tree" class="scope-tree"></div>
+              </section>
+
+              <section class="scope-tree-card">
+                <h3 id="scope-tabs-title" class="section-title">Windows and tabs</h3>
+                <div id="tab-scope-tree" class="scope-tree"></div>
+              </section>
+            </div>
+          </div>
+        </section>
+
+        <section class="settings-card settings-card-wide">
+          <div class="section-copy">
+            <h2 id="privacy-section-title">Index and privacy</h2>
+            <p id="privacy-section-copy" class="section-text">
+              Follow progress, refresh the index, and manage AI tags from one place so maintenance always feels clear and reversible.
+            </p>
+          </div>
+
+          <p id="privacy-note" class="note">AI tags cache only the generated short labels, never full page content. You can regenerate or clear them at any time.</p>
+          <div id="action-feedback" class="status-inline hidden"></div>
+
+          <div id="ai-progress-panel" class="progress-panel hidden" aria-live="polite">
+            <div class="progress-row">
+              <strong id="ai-progress-label">AI tags in progress</strong>
+              <div class="progress-actions">
+                <span id="ai-progress-count">0 / 0</span>
+                <button id="stop-ai" class="ghost-button hidden" type="button">Stop</button>
+              </div>
+            </div>
+            <div class="progress-track">
+              <div id="ai-progress-fill" class="progress-fill"></div>
+            </div>
+            <div id="ai-progress-message" class="progress-message">Preparing task...</div>
+          </div>
+
+          <div id="index-status" class="status-box">Loading index status...</div>
+
+          <div class="action-cluster">
+            <button id="rebuild-ai" class="primary-wide" type="button">Regenerate AI tags</button>
+            <div class="button-row">
+              <button id="rebuild-index" class="ghost-button" type="button">Rebuild index</button>
+              <button id="clear-ai" class="danger-button" type="button">Clear AI tags</button>
+            </div>
+          </div>
+
+          <section class="dead-links-card">
+            <div class="section-copy">
+              <h3 id="dead-links-section-title" class="section-title">Dead links cleanup</h3>
+              <p id="dead-links-section-copy" class="section-text">
+                Scan bookmarks and open tabs for confirmed dead links, review the list, then batch remove or close only the items you approve.
+              </p>
+            </div>
+
+            <div class="button-row">
+              <button id="scan-dead-links" class="ghost-button" type="button">Scan dead links</button>
+            </div>
+
+            <div id="dead-links-progress-panel" class="progress-panel hidden" aria-live="polite">
+              <div class="progress-row">
+                <strong id="dead-links-progress-label">Dead link scan in progress</strong>
+                <span id="dead-links-progress-count">0 / 0</span>
+              </div>
+              <div class="progress-track">
+                <div id="dead-links-progress-fill" class="progress-fill"></div>
+              </div>
+              <div id="dead-links-progress-message" class="progress-message">Preparing scan...</div>
+            </div>
+
+            <div id="dead-links-results-panel" class="dead-links-results-panel hidden">
+              <div class="dead-links-toolbar">
+                <label class="dead-links-select-all">
+                  <input id="dead-links-select-all" type="checkbox">
+                  <span id="dead-links-select-all-label">Select all</span>
+                </label>
+                <button id="clean-dead-links" class="danger-button" type="button">Batch cleanup</button>
+              </div>
+
+              <div id="dead-links-summary" class="status-inline"></div>
+              <div id="dead-links-results" class="dead-links-results"></div>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="scripts/options/options.js"></script>
+  </body>
+</html>
