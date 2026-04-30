@@ -40,9 +40,13 @@ The developer of Bookmark Pilot does not operate the user-selected AI endpoint a
 
 When the user runs dead-link scanning, the extension sends network requests to the URLs selected for checking in order to determine whether those URLs return errors such as `404`, `410`, DNS failure, or connection failure.
 
+## Public Website Analytics
+
+The public privacy policy page may use Google Analytics to understand basic page traffic. Google may receive information such as page views, browser information, approximate location, and device information according to Google's own policies. Bookmark Pilot's Chrome extension pages do not load Google Analytics.
+
 ## Data Sharing
 
-Bookmark Pilot does not sell user data. Data is not shared with the developer's own server, because the extension does not use a developer-operated backend service. Data is only transmitted externally when the user explicitly uses features that require network access, such as AI analysis or dead-link scanning.
+Bookmark Pilot does not sell user data. Data is not shared with the developer's own server, because the extension does not use a developer-operated backend service. Data is only transmitted externally when the user explicitly uses features that require network access, such as AI analysis, dead-link scanning, or visiting the public privacy policy page.
 
 ## User Control
 
@@ -54,4 +58,3 @@ Bookmark Pilot does not sell user data. Data is not shared with the developer's 
 ## Contact
 
 For privacy questions about Bookmark Pilot, please contact the developer using the support contact information provided on the Chrome Web Store listing for this extension.
-
